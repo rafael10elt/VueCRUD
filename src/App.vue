@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <CNavbar class="container-fluid w-100 p-4 text-center text-light" color="info">
-      <h1>Vue CRUD</h1>
-    </CNavbar>
+    <CNavbar class="container-fluid w-100 p-5 text-center text-light" color="info"></CNavbar>
     <CContainer>
       <CRow class="container-fluid mt-5">
         <CCol lg="12">
