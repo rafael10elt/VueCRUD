@@ -22,7 +22,7 @@
             </CCol>
             <CCol>
               <h4 class="font-weight-bold">TELEFONE</h4>
-              <CInput type="tel" placeholder="81 999999999" v-model="pessoa.telefone" />
+              <CInput type="tel" placeholder="(81) 99999-9999" v-model="pessoa.telefone" />
             </CCol>
             <CButton
               class="btn btn-success btn-lg text-center"
