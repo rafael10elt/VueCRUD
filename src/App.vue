@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <CNavbar class="container-fluid w-100 p-4 text-center text-light" color="info">
-      <h1 class="font-weight-bold font-italic">Vue CRUD</h1>
+      <CNavbarBrand>
+        <img src="./assets/logo.png" width="50px" />
+        <h2 class="font-weight-bold font-italic text-center">Vue CRUD</h2>
+      </CNavbarBrand>
     </CNavbar>
 
-    <CRow class="mt-4 bg-light w-100">
+    <CRow class="mt-4 mr-3 bg-light w-100">
       <CCol lg="4">
         <div
           class="bg-dark text-light w-75 shadow p-1 mb-5 ml-5 mt-5 bg-dark rounded"
           style="height:370px"
         >
           <CForm class="mt-2" @submit.prevent="salvar">
-            <CCol lg="12" class="mt-3">
+            <CCol lg="12" class="mt-3 text-center">
               <h4 class="font-weight-bold mt-4">NOME</h4>
               <CInput type="text" placeholder="Nome" v-model="pessoa.nome" />
             </CCol>
@@ -21,7 +24,13 @@
             </CCol>
             <CCol lg="12">
               <h4 class="font-weight-bold">TELEFONE</h4>
-              <CInput type="tel" placeholder="(81) 99999-9999" v-model="pessoa.telefone" />
+              <the-mask
+                class="shadow bg-light rounded"
+                mask="(##) #####-####"
+                placeholder="(xx) xxxxx-xxxx"
+                v-model="pessoa.telefone"
+                style="width:392px;height:35px;font-size:14px;"
+              />
             </CCol>
             <CButton
               class="btn btn-success btn-lg text-center mt-4"
@@ -81,11 +90,18 @@
 <script>
 import Pessoa from "./services/pessoa";
 // Registering a single component
-import { CButton, CNavbar, CRow, CCol, CInput, CForm } from "@coreui/vue";
+import {
+  CButton,
+  CNavbar,
+  CRow,
+  CCol,
+  CInput,
+  CForm,
+  CNavbarBrand
+} from "@coreui/vue";
 import { Trash2Icon, EditIcon, SaveIcon, RepeatIcon } from "vue-feather-icons";
-
+import { TheMask } from "vue-the-mask";
 export default {
-  name: "App",
   components: {
     CButton,
     CForm,
@@ -96,7 +112,9 @@ export default {
     Trash2Icon,
     EditIcon,
     SaveIcon,
-    RepeatIcon
+    RepeatIcon,
+    CNavbarBrand,
+    TheMask
   },
   data() {
     return {
