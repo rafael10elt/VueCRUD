@@ -6,7 +6,7 @@
       <!--Logomarca do cabeçalho-->
       <CNavbarBrand>
         <!--Logotipo e Texto da logomarca-->
-        <img src="./assets/logo.png" width="50px" />
+        <img src="./assets/logo.png" width="60px" />
         <h2 class="font-weight-bold font-italic text-center">Vue CRUD</h2>
       </CNavbarBrand>
     </CNavbar>
