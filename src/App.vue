@@ -1,18 +1,25 @@
 <template>
+  <!-- Container Principal: App -->
   <div id="app">
+    <!--Área de navegação simples, usada como cabeçalho: navbar-->
     <CNavbar class="container-fluid w-100 p-4 text-center text-light" color="info">
+      <!--Logomarca do cabeçalho-->
       <CNavbarBrand>
+        <!--Logotipo e Texto da logomarca-->
         <img src="./assets/logo.png" width="50px" />
         <h2 class="font-weight-bold font-italic text-center">Vue CRUD</h2>
       </CNavbarBrand>
     </CNavbar>
-
+    <!--Row-Linha de ajuste do grid-->
     <CRow class="mt-4 mr-3 bg-light w-100">
+      <!--Col- Coluna de ajuste do grid destinadoo ao formulário-->
       <CCol lg="4">
+        <!--Área de do template do formulário-->
         <div
           class="bg-dark text-light w-75 shadow p-1 mb-5 ml-5 mt-5 bg-dark rounded"
           style="height:370px"
         >
+          <!--Formulário e seus componentes-->
           <CForm class="mt-2" @submit.prevent="salvar">
             <CCol lg="12" class="mt-3 text-center">
               <h4 class="font-weight-bold mt-4">NOME</h4>
@@ -47,16 +54,11 @@
               <RepeatIcon size="24" style="margin-right:4px" />Limpar
             </CButton>
           </CForm>
-          <ul>
-            <li v-for="(erro, index) of errors" :key="index">
-              campo
-              <b>{{erro.field}}</b>
-              - {{erro.defaultMessage}}
-            </li>
-          </ul>
         </div>
+        <!--Col- Coluna de ajuste do grid destinadoo a tabela-->
       </CCol>
       <CCol lg="8" class="bg-secondary mt-3">
+        <!--Cabeçalho da tabela com os títulos das colunas-->
         <table class="table table-hover mt-3">
           <thead>
             <tr class="bg-dark text-light">
@@ -66,6 +68,7 @@
               <th scope="col">OPÇÕES</th>
             </tr>
           </thead>
+          <!--Linhas de conteúdo da tabela-->
           <tbody>
             <tr scope="row" v-for="pessoa of pessoas" :key="pessoa.id">
               <td>{{ pessoa.nome }}</td>
@@ -88,8 +91,9 @@
 </template>
 
 <script>
+// Importando a classe Pessoa, responsável pelas requisições HTTP(GET,PUT,DELETE,POST).
 import Pessoa from "./services/pessoa";
-// Registering a single component
+// Importando os componentes do pacote @coreui/vue.
 import {
   CButton,
   CNavbar,
@@ -99,8 +103,11 @@ import {
   CForm,
   CNavbarBrand
 } from "@coreui/vue";
+// Importando os componentes do pacote vue-feather-icons.
 import { Trash2Icon, EditIcon, SaveIcon, RepeatIcon } from "vue-feather-icons";
+// Importando os componentes do pacote vue-the-mask, responsável pelo tratamento do campo Telefone.
 import { TheMask } from "vue-the-mask";
+// Exportação dos componentes para disponibilizá´los para uso.
 export default {
   components: {
     CButton,
@@ -116,6 +123,7 @@ export default {
     CNavbarBrand,
     TheMask
   },
+  //Função Data, responsável pelo controle de dados da aplicação.
   data() {
     return {
       pessoa: {
@@ -128,10 +136,11 @@ export default {
       errors: []
     };
   },
-
+  // Função Mounted() para iniciar manualmente a compilação.
   mounted() {
     this.listar();
   },
+  // A área de methods é onde são declarados todos os métodos da aplicação.
   methods: {
     listar() {
       Pessoa.listar().then(resposta => {
@@ -186,14 +195,17 @@ export default {
 </script>
 
 <style>
+/* Folha de estilização da página */
+/* Importando a fonte Roboto do Google */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-
+/*Padronização inicial do html. */
 * {
   margin: 0;
   padding: 0;
   outline: 0;
   box-sizing: border-box;
 }
+/*Estilização do elemento app */
 #app {
   font: 400 18px Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -204,10 +216,5 @@ export default {
   padding: 0;
   outline: 0;
   box-sizing: border-box;
-}
-.container {
-  margin-top: 30px;
-  height: auto;
-  width: 100%;
 }
 </style>
