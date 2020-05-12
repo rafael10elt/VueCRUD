@@ -1,12 +1,12 @@
 <template>
   <!-- Container Principal: App -->
-  <div id="app">
+  <div role="main" id="app">
     <!--Área de navegação simples, usada como cabeçalho: navbar-->
-    <CNavbar class="container-fluid w-100 p-4 text-center text-light" color="info">
+    <CNavbar role="nav" class="container-fluid w-100 p-4 text-center text-light" color="info">
       <!--Logomarca do cabeçalho-->
-      <CNavbarBrand>
+      <CNavbarBrand role="banner">
         <!--Logotipo e Texto da logomarca-->
-        <img src="./assets/logo.png" width="60px" />
+        <img role="img" src="./assets/logo.png" width="60px" />
         <h2 class="font-weight-bold font-italic text-center">Vue CRUD</h2>
       </CNavbarBrand>
     </CNavbar>
@@ -23,15 +23,21 @@
           <CForm class="mt-2" @submit.prevent="salvar">
             <CCol lg="12" class="mt-3 text-center">
               <h4 class="font-weight-bold mt-4">NOME</h4>
-              <CInput type="text" placeholder="Nome" v-model="pessoa.nome" />
+              <CInput aria-label="nome" type="text" placeholder="Nome" v-model="pessoa.nome" />
             </CCol>
             <CCol lg="12">
               <h4 class="font-weight-bold">EMAIL</h4>
-              <CInput type="email" placeholder="nome@email.com" v-model="pessoa.email" />
+              <CInput
+                aria-label="email"
+                type="email"
+                placeholder="nome@email.com"
+                v-model="pessoa.email"
+              />
             </CCol>
             <CCol lg="12">
               <h4 class="font-weight-bold">TELEFONE</h4>
               <the-mask
+                aria-label="telefone"
                 class="shadow bg-light rounded"
                 mask="(##) #####-####"
                 placeholder="(xx) xxxxx-xxxx"
@@ -40,6 +46,8 @@
               />
             </CCol>
             <CButton
+              aria-label="salvar"
+              role="button"
               class="btn btn-success btn-lg text-center mt-4"
               type="submit"
               title="salvar_registro"
@@ -47,6 +55,8 @@
               <SaveIcon size="24" style="margin-right:4px" />Salvar
             </CButton>
             <CButton
+              aria-label="limpar"
+              role="button"
               class="btn btn-danger btn-lg ml-3 text-center mt-4"
               type="reset"
               title="limpar_conteudo"
@@ -75,10 +85,10 @@
               <td>{{ pessoa.email }}</td>
               <td>{{ pessoa.telefone }}</td>
               <td>
-                <CButton @click="editar(pessoa)" title="Editar">
+                <CButton aria-label="editar" role="button" @click="editar(pessoa)" title="Editar">
                   <EditIcon size="24" />
                 </CButton>
-                <CButton @click="remover(pessoa)" title="Apagar">
+                <CButton aria-label="apagar" role="button" @click="remover(pessoa)" title="Apagar">
                   <Trash2Icon size="24" />
                 </CButton>
               </td>
