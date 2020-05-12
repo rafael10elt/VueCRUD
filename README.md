@@ -17,3 +17,11 @@ npm install
 ```
 npm run serve
 ```
+### Packages
+```
+- axios
+- vue-feather-icons
+- vue-the-mask
+- @coreui/vue
+
+```
