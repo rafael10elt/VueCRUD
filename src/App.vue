@@ -42,7 +42,7 @@
                 mask="(##) #####-####"
                 placeholder="(xx) xxxxx-xxxx"
                 v-model="pessoa.telefone"
-                style="width:392px;height:35px;font-size:14px;"
+                style="width:365px;height:35px;font-size:14px;"
               />
             </CCol>
             <CButton
