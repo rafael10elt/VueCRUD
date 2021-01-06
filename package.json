@@ -10,7 +10,7 @@
   "dependencies": {
     "@coreui/coreui": "^3.0.0",
     "@coreui/vue": "^3.0.8",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-feather-icons": "^5.0.0",
